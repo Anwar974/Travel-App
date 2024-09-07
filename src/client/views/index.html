@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluate News Article</title>
+</head>
+<body>
+    <header>
+        <h1>Evaluate News Article</h1>
+    </header>
+    <main>
+        <form id="articleForm">
+            <label for="articleUrl">Enter URL of the news article:</label>
+            <input type="text" id="articleUrl" name="articleUrl" placeholder="Enter the article URL" required>
+            <button type="submit">Submit</button>
+        </form>
+        <section id="results">
+            <h2>Analysis Results</h2>
+            <p id="polarity"></p>
+            <p id="subjectivity"></p>
+            <p id="text"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Evaluate News Article</p>
+    </footer>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        });
+    }
+    </script>
+</body>
+</html>
