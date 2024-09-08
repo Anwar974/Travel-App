@@ -35,6 +35,15 @@ app.post('/postData',function (req,res){
     res.send(projectData);
 });
 
+// API key configuration
+const geoNamesUsername = process.env.GEONAMES_USERNAME;
+const weatherbitKey = process.env.WEATHERBIT_KEY;
+const pixabayAPIKey = process.env.PIXABAY_API;
+
+// Example route to demonstrate API key usage (adjust as necessary)
+app.get('/api/keys', (req, res) => {
+    res.json({ geoNamesUsername, weatherbitKey, pixabayAPIKey }); // Example response, replace with actual API integration
+});
 
 app.listen(8089, () => {
         console.log('Server running on port 8089');
