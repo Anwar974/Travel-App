@@ -1,4 +1,4 @@
-import  {handleSubmit} from "./handleSubmit";
+import  {handleSubmit} from "./handleSubmit.js";
 
 
 const remove_trip = document.getElementById('remove_trip').addEventListener('click', function (e) {

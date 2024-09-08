@@ -1,186 +1,158 @@
 #page {
     display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "plan_trip trip_details_section";
     width: 100%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "nav nav nav" "about about about" "trip trip trip" "tripdetails tripdetails tripdetails" "tripdetails tripdetails tripdetails" "footer footer footer";
     font-family: Comfortaa, cursive;
     color: black;
 }
 
-
-#about_us {
+#plan_trip, #trip_details_section {
     padding: 5vh 0;
-    width: 100%;
     height: 100vh;
-    grid-area: about;
-    display: grid;
-    grid-template-columns: 20vw 1fr 20vw;
-    grid-template-areas: "space space space" "content content content" "space3 space3 space3";
 }
-
-#desc {
-    margin: 0 auto;
-    background-color: #20bf55;
-    background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
-    width: 80%;
-    grid-area: content;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 20px;
-    box-shadow: 10px 16px 55px black;
-}
-
-#desc div {
-    font-size: 10vh;
-}
-
-#desc button {
-    font-size: 4vh;
-    padding: 15px 20px;
-    background: linear-gradient(to right, #ece9e6, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border: none;
-    border-radius: 10px;
-    box-shadow: 10px 16px 10px black;
-    font-family: Comfortaa, cursive;
-}
-
-#desc button:hover{
-    box-shadow: none;
-}
-#desc p {
-    padding: 20px;
-    font-weight: 700;
-}
-
 
 #plan_trip {
-    padding: 5vh 0;
-    width: 100%;
-    height: 100vh;
-    grid-area: trip;
-    background-color: #20bf55;
-    background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-#form_img img {
-    width: 30vw;
-    height: 30vw;
+    background-color: #6a1b9a; /* Purple background color */
+    background-image: linear-gradient(315deg, #6a1b9a 0%, #00bcd4 74%);
+    grid-area: plan_trip;
+    display: flex; /* Added to ensure flex properties work */
+    justify-content: center; /* Centers children horizontally */
+    align-items: center; /* Centers children vertically */
 }
 
 #plan_your_trip {
-    margin: 0 auto;
-    width: 80vw;
+    width: 80%;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
 }
 
-#plan_your_trip h1{
+#plan_your_trip h1 {
     font-size: 5vh;
+    margin-bottom: 15px;
 }
 
-#trip_details_form input{
+#trip_details_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#trip_details_form input {
     font-size: 3vh;
     padding: 5px;
-    border:none;
-    font-family: Comfortaa,cursive;
+    border: none;
+    font-family: Comfortaa, cursive;
     border-radius: 10px;
-    box-shadow: 0 1px 10px white;
+    box-shadow: 0 1px 10px #000;
+    margin-bottom: 15px;
+    width: 80%;
 }
 
-#trip_details_form input[type=submit]{
+#trip_details_form input[type=submit] {
     padding: 1vw 2vw;
-    background: linear-gradient(to right, #ece9e6, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient(315deg, #6a1b9a 0%, #00bcd4 74%);
     box-shadow: 1px 6px 10px black;
+    width: 50%;
 }
 
-#trip_details_form input[type=submit]:hover{
+#trip_details_form input[type=submit]:hover {
     box-shadow: none;
 }
 
-#trip_details_form label{
+#trip_details_form label {
     font-size: 3vh;
-    padding:2px ;
+    padding: 2px;
 }
 
-@media only screen and (max-width:1150px) {
-        #trip_details_form input{
-            width: 100%;
-            margin: 10px;
-        }
+@media only screen and (max-width: 1150px) {
+    #trip_details_form input {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    #plan_your_trip {
+        width: 90%;
+    }
+
+    #trip_details {
+        width: 90%;
+    }
 }
 
-#trip_details_section{
+#trip_details_section {
+    background-color: #6a1b9a; /* Purple background color */
+    background-image: linear-gradient(315deg, #6a1b9a 0%, #00bcd4 74%);
+    grid-area: trip_details_section;
+    display: flex; /* Added to ensure flex properties work */
+    justify-content: center; /* Centers children horizontally */
+    align-items: center; /* Centers children vertically */
+    padding: 25px;
+}
+
+#trip_details {
+    display: flex;
+    flex-direction: row; /* Aligns children horizontally */
+    align-items: center;
     width: 100%;
-    color: black;
-    height: 100vh;
-    grid-area: tripdetails;
-    display: grid;
-    grid-template-columns: 20vw 1fr 20vw;
-    grid-template-areas: "space space space" "content content content" "space3 space3 space3";
-
+    border-radius: 20px;
+    box-shadow: 12px 16px 55px black;
+    justify-content: center;
+    padding: 50px 0;
 }
 
-#dest_photo img{
+#dest_photo img {
     width: 15vw;
     height: 15vw;
 }
 
-#trip_details{
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    grid-area: content;
-    background-color: #20bf55;
-    background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
-    width: 80vw;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 12px 16px 55px black;
+#dest_photo {
+    padding: 20px;
+    margin-left:5px;
 }
 
-#trip_details div{
-    margin-left: 2vw;
-}
-
-#main_details{
+#main_details {
     display: grid;
     width: 60vw;
     height: auto;
-    font-size: 2vw;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: auto;
+    font-size: 1.75vw;
+    grid-template-rows: repeat(5, 1fr);
     grid-gap: 10px;
+    padding-left: 15px;
 }
 
-.dynamic_content{
-    background-image: linear-gradient(315deg, #f5df2e 0%, #f07654 74%);
+.dynamic_content {
+    background-image: linear-gradient(315deg, #6a1b9a 0%, #00bcd4 74%);
 }
 
-#remove_trip{
+#remove_trip {
     font-size: 2vw;
-    width: fit-content;
-    outline: none;
-    font-family: Comfortaa,cursive;
     padding: 1vw 2vw;
     background-color: red;
-    border:none;
+    border: none;
     border-radius: 50px;
     box-shadow: 1px 6px 10px black;
-}
-#remove_trip:hover{
-    box-shadow: none;
-}
-#dest_desc_photo{
-    border-radius: 50%;
+    cursor: pointer;
 }
 
-.invisible{
+#remove_trip:hover {
+    box-shadow: none;
+}
+
+.invisible {
     display: none !important;
+}
+
+@media only screen and (max-width: 1150px) {
+    #page {
+        grid-template-columns: 1fr; /* Stack sections vertically on smaller screens */
+        grid-template-areas: "plan_trip" "trip_details_section";
+    }
+
+    #plan_trip, #trip_details_section {
+        width: 100%; /* Ensure sections take up the full width */
+        height: auto; /* Allow height to adjust automatically */
+    }
 }

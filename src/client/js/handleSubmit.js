@@ -1,6 +1,6 @@
+
 const details = {};
 
-// All the resources of APIs
 const geoNamesURL = 'http://api.geonames.org/searchJSON?q=';
 const username = 'anwaar';
 const weatherbitforecastURL = 'https://api.weatherbit.io/v2.0/forecast/daily?lat=';
@@ -78,7 +78,6 @@ async function getGeoDetails(to) {
         console.log('Error parsing JSON:', e);
     }
 }
-
 
 //Function to get weather data
 async function getWeatherData(toLat, toLng, date) {
