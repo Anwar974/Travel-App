@@ -1,50 +1,43 @@
+let projectData = {};
+
+
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const async = require('express-async-errors')
 const dotenv = require('dotenv');
 require('dotenv').config();
 const cors = require('cors')
 const app = express();
 
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(bodyParser.json());
-// app.use(express.static(path.join(__dirname, 'src')));
 app.use(express.static('dist'));
-
-app.post('/api', async(req, res) => {
-    const articleUrl = req.body.url;
-    const apiKey = process.env.API_KEY;
-    const apiUrl = `https://api.meaningcloud.com/sentiment-2.1?key=${apiKey}&url=${articleUrl}&lang=en`;
-
-    try {
-        const fetch = (await import('node-fetch')).default;
-        const response = await fetch(apiUrl);
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        res.send(data);
-
-        
-        console.log(data);
-
-    } catch (error) {
-        res.status(500).send({ error: 'Unable to process the request' });
-    }
-});
 
 app.get('/', (req, res) => {
     res.sendFile(path.resolve('dist/index.html'));
-    // res.sendFile(path.resolve('./src/client/views/index.html'));
 // 
 });
 
-if (require.main === module) {
-    app.listen(8082, () => {
-        console.log('Server running on port 8082');
-    });
-}
+
+app.post('/postData',function (req,res){
+    projectData['to'] = req.body.to;
+    projectData['from'] = req.body.from;
+    projectData['temperature'] = req.body.temperature;
+    projectData['weather_condition'] = req.body.weather_condition;
+    projectData['daystogo'] = req.body.daystogo;
+    projectData['cityImage']  = req.body.cityImage;
+    projectData['date'] = req.body.date;
+
+    res.send(projectData);
+});
+
+
+app.listen(8089, () => {
+        console.log('Server running on port 8089');
+});
+
 module.exports = app;

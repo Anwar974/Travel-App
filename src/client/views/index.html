@@ -1,43 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evaluate News Article</title>
+    <title>Travel App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Evaluate News Article</h1>
-    </header>
-    <main>
-        <form id="articleForm">
-            <label for="articleUrl">Enter URL of the news article:</label>
-            <input type="text" id="articleUrl" name="articleUrl" placeholder="Enter the article URL" required>
-            <button type="submit">Submit</button>
-        </form>
-        <section id="results">
-            <h2>Analysis Results</h2>
-            <p id="polarity"></p>
-            <p id="subjectivity"></p>
-            <p id="text"></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Evaluate News Article</p>
-    </footer>
+<div id="page">
 
-    <script>
-        if ('serviceWorker' in navigator) {
+    <section id="plan_trip">
+        <div id="plan_your_trip">
+
+            <h1>Plan your trip</h1>
+            <form id="trip_details_form">
+                <input type="text" id="from_place" name="from" placeholder="From" autocomplete="off" required>
+                <input type="text" id="to_place" name="to" placeholder="To" autocomplete="off" required>
+                <label for="travel_date"> departing on </label>
+                <input type="date" id="travel_date" name="date" required>
+                <input type="submit"
+                       name="submit" id="travel_details_submit" value="Submit">
+            </form>
+        </div>
+    </section>
+
+    <section class='invisible' id="trip_details_section">
+        <div id="trip_details">
+            <div id="dest_photo">
+                <img id="dest_desc_photo" src="../views/img/earth.svg" alt="destination image">
+            </div>
+            <div id="main_details">
+                <div id="boarding_details">You are boarding from: <span class="dynamic_content"
+                                                                   id="boarding">Delhi</span></div>
+                <div id="destination_details">You are going to: <span class="dynamic_content"
+                                                                      id="destination">Varanasi</span></div>
+                <div id="departure_details">Departing on: <span class="dynamic_content"
+                                                                id="departing_date">31/01/2019</span></div>
+                <div id="days_to_go_details">Days to go <span class="dynamic_content" id="number_of_days">31</span>
+                </div>
+                <div id="temperature_details">Expect weather to be <span class="dynamic_content"
+                                                                         id="temperature">23 &#8451;</span> , mostly
+                    <span class="dynamic_content" id="weather">Sunny</span>.</div>
+                <div>
+                    <button class="button_style" id="remove_trip">Remove</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</div>
+<script>
+    if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
-                .then(registration => {
-                    console.log('Service Worker registered with scope:', registration.scope);
-                })
-                .catch(error => {
-                    console.error('Service Worker registration failed:', error);
-                });
+            navigator.serviceWorker.register('/service-worker.js');
         });
     }
-    </script>
+</script>
 </body>
 </html>

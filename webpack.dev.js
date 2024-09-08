@@ -16,7 +16,7 @@ module.exports = {
     devServer: {
         static: path.join(__dirname, 'dist'),
         compress: true,
-        port: 8081,
+        port: 8088,
     },
     module: {
         rules: [
@@ -29,19 +29,26 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
               },
               {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                  loader: 'babel-loader',
-                  options: {
-                    presets: ['@babel/preset-env'],
-                  },
-                },
-              },
-              {
-                test: /\.html$/,
-                use: ['html-loader'],
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name : '[name].[ext]',
+                            outputPath: 'img/',
+                            publicPath: 'img/'
+
+                        }
+                    }
+                ],
             },
+            {
+                test: /\.(html)$/,
+                use: [{
+                    loader: 'html-loader',
+                }]
+            }
+              
         ]
     },
     
